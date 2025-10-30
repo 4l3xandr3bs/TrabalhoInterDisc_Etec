@@ -14,15 +14,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Medico {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
      
-    private Integer idMedico;
+    private Integer idCliente;
     @Column(nullable = false, length = 40)
-    private String nomeMedico;
+    private String nomeCliente;
      @Column(nullable = false, length = 40)
-    private String especialMedico;
-   
-    private Integer crmMedico;
+    private String enderecoCliente;
+    @Column(nullable = false, length = 40)
+    private String telefoneCliente;
 }
+

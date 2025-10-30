@@ -1,4 +1,6 @@
 package br.com.clininin.clinicar.Service;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.com.clininin.clinicar.Entity.Consulta;
@@ -23,5 +25,4 @@ public class ConsultaService {
     public Consulta findById(Integer idConsulta) {
         return consultaRepository.findById(idConsulta).orElse(null);
     }
-}
 }
