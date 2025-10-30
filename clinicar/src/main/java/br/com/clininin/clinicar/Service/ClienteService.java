@@ -10,19 +10,19 @@ import br.com.clininin.clinicar.Repository.ClienteRepository;
 public class ClienteService {
     @Autowired 
     private ClienteRepository clienteRepository;
-    //método para salvar um aluno
-    public Cliente save(Cliente medico ){
-        return clienteRepository.save(medico);
+
+    public Cliente save(Cliente cliente ){
+        return clienteRepository.save(cliente);
   
     }
-    //método para listar todos os alunos
+    
     public List<Cliente> findAll(){
       return clienteRepository.findAll();
     }
-     public void deleteById(Integer id){
-        clienteRepository.deleteById(id);
+     public void deleteById(Integer idCliente){
+        clienteRepository.deleteById(idCliente);
       }
-      public Cliente findById(Integer id){
-          return clienteRepository.findById(id).orElse(null);
+      public Cliente findById(Integer idCliente){
+          return clienteRepository.findById(idCliente).orElse(null);
       };
 }

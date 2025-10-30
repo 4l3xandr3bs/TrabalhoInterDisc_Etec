@@ -22,18 +22,18 @@ public class ClienteController {
     public String listar(Model model) {
         List<Cliente> clientes = clienteService.findAll();
         model.addAttribute("clientes", clientes);
-        return "medico/listaMedico";
+        return "cliente/listaCliente";
     }
 
     @GetMapping("/criar")
     public String criarForm(Model model) {
         model.addAttribute("cliente", new Cliente());
-        return "curso/formularioMedico";
+        return "curso/formularioCliente";
     }
 
     @GetMapping("/excluir/{idCliente}")
-    public String excluir(@PathVariable Integer idMedico) {
-        clienteService.deleteById(idMedico);
+    public String excluir(@PathVariable Integer idCliente) {
+        clienteService.deleteById(idCliente);
         return "redirect:/clientes/listar";
     }
 
