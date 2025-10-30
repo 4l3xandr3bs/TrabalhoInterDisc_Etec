@@ -19,10 +19,10 @@ public class MedicoService {
     public List<Medico> findAll(){
       return medicoRepository.findAll();
     }
-     public void deleteById(Integer id){
-        medicoRepository.deleteById(id);
+     public void deleteById(Integer idMedico){
+        medicoRepository.deleteById(idMedico);
       }
-      public Medico findById(Integer id){
-          return medicoRepository.findById(id).orElse(null);
+      public Medico findById(Integer idMedico){
+          return medicoRepository.findById(idMedico).orElse(null);
       };
 }
