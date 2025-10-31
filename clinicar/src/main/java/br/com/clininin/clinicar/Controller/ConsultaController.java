@@ -7,12 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import br.com.clininin.clinicar.Entity.Consulta;
+import br.com.clininin.clinicar.Service.ClienteService;
 import br.com.clininin.clinicar.Service.ConsultaService;
+import br.com.clininin.clinicar.Service.MedicoService;
 @Controller
 @RequestMapping("/consultas")
 public class ConsultaController {
     @Autowired
     public ConsultaService consultaService;
+    @Autowired
+    public ClienteService clienteService;
+    @Autowired
+    public MedicoService medicoService;
 
    
 
@@ -25,19 +31,19 @@ public class ConsultaController {
     
     @GetMapping("/criar")
     public String criarForm(Model model) {
-        model.addAttribute("consulta", new consulta());
+        model.addAttribute("consulta", new Consulta());
         return "consulta/cadastroConsulta";
     }
 
     @GetMapping("/excluir/{idConsulta}")
     public String excluir(@PathVariable Integer idConsulta) {
-        consultaService.deleteById(idMedico);
+        consultaService.deleteById(idConsulta);
         return "redirect:/consultas/listar";
     }
     
     @GetMapping("/editar/{idConsulta}")
     public String editarForm(@PathVariable Integer idConsulta, Model model) {
-        consulta consulta = consultaService.findById(idConsulta);
+        Consulta consulta = consultaService.findById(idConsulta);
         model.addAttribute("consulta", consulta);
         return "medico/cadastroConsulta";
     }

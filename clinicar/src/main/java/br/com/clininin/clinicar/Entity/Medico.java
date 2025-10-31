@@ -24,5 +24,5 @@ public class Medico {
      @Column(nullable = false, length = 40)
     private String especialMedico;
    
-    private Integer enderecoAluno;
+    private Integer crmMedico;
 }
