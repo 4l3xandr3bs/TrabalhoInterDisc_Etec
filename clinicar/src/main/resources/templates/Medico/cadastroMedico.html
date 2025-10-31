@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  <link rel="stylesheet" href="../static/css/styleGeral.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+   
+    <main>
+     <div class="col-6 m4 ">
+      <h2>Cadastro como médico</h2>
+      
+      <form>
+        <label for="email" class="form-label">Nome Completo</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Insira seu e-mail"
+          aria-describedby="emailajuda"
+        />
+        <div id="emailajuda" class="form-text">
+          Não iremos compartilhar seu email com os outros(eu acho)
+        </div>
+        <div class="mb-4">
+          <label for="password" class="form-label">CRM:</label>
+          <input type="text" class="form-control" placeholder="Digite seu Crm aqui">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+    </div>
+</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
