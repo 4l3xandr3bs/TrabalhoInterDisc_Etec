@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import br.com.clininin.clinicar.Entity.Medico;
 import br.com.clininin.clinicar.Service.MedicoService;
 @Controller
@@ -15,7 +17,13 @@ public class MedicoController {
     @Autowired
     public MedicoService medicoService;
 
-   
+    @PostMapping("/salvar")
+    public String salvar(@ModelAttribute Medico medico) {
+        // salva aluno
+        medicoService.save(medico);
+
+        return "redirect:/medicos/listar";
+    }
 
     @GetMapping("/listar")
     public String listar(Model  model) {
