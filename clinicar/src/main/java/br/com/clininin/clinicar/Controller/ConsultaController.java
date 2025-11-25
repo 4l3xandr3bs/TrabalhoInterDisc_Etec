@@ -32,7 +32,7 @@ public class ConsultaController {
     @GetMapping("/criar")
     public String criarForm(Model model) {
         model.addAttribute("consulta", new Consulta());
-        return "consulta/cadastroConsulta";
+        return "Consulta/cadastroConsulta";
     }
 
     @GetMapping("/excluir/{idConsulta}")
@@ -45,6 +45,6 @@ public class ConsultaController {
     public String editarForm(@PathVariable Integer idConsulta, Model model) {
         Consulta consulta = consultaService.findById(idConsulta);
         model.addAttribute("consulta", consulta);
-        return "medico/cadastroConsulta";
+        return "Consulta/cadastroConsulta";
     }
 }

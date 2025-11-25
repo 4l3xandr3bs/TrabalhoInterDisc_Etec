@@ -29,13 +29,13 @@ public class MedicoController {
     public String listar(Model  model) {
         List<Medico> medicos = medicoService.findAll();
         model.addAttribute("medicos", medicos);
-        return "medico/listaMedico";
+        return "Medico/listaMedico";
     }
     
     @GetMapping("/criar")
     public String criarForm(Model model) {
         model.addAttribute("medico", new Medico());
-        return "curso/formularioMedico";
+        return "Medico/formularioMedico";
     }
 
     @GetMapping("/excluir/{idMedico}")
@@ -48,6 +48,6 @@ public class MedicoController {
     public String editarForm(@PathVariable Integer idMedico, Model model) {
         Medico medico = medicoService.findById(idMedico);
         model.addAttribute("medico", medico);
-        return "medico/formularioMedico";
+        return "Medico/formularioMedico";
     }
 }

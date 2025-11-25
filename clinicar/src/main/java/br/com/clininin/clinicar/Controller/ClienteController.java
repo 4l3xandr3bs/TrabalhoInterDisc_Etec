@@ -32,18 +32,18 @@ public class ClienteController {
     public String listar(Model model) {
         List<Cliente> clientes = clienteService.findAll();
         model.addAttribute("clientes", clientes);
-        return "medico/listaMedico";
+        return "Cliente/listaCliente";
     }
 
     @GetMapping("/criar")
     public String criarForm(Model model) {
         model.addAttribute("cliente", new Cliente());
-        return "medico/formularioMedico";
+        return "Cliente/cadastroCliente";
     }
 
     @GetMapping("/excluir/{idCliente}")
-    public String excluir(@PathVariable Integer idMedico) {
-        clienteService.deleteById(idMedico);
+    public String excluir(@PathVariable Integer idCliente) {
+        clienteService.deleteById(idCliente);
         return "redirect:/clientes/listar";
     }
 
@@ -51,7 +51,7 @@ public class ClienteController {
     public String editarForm(@PathVariable Integer idCliente, Model model) {
         Cliente cliente = clienteService.findById(idCliente);
         model.addAttribute("cliente", cliente);
-        return "cliente/formularioMedico";
+        return "Cliente/cadastroCliente";
     }
 
 
