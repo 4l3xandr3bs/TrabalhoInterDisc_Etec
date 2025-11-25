@@ -35,7 +35,7 @@ public class MedicoController {
     @GetMapping("/criar")
     public String criarForm(Model model) {
         model.addAttribute("medico", new Medico());
-        return "Medico/formularioMedico";
+        return "Medico/cadastroMedico";
     }
 
     @GetMapping("/excluir/{idMedico}")
@@ -48,6 +48,6 @@ public class MedicoController {
     public String editarForm(@PathVariable Integer idMedico, Model model) {
         Medico medico = medicoService.findById(idMedico);
         model.addAttribute("medico", medico);
-        return "Medico/formularioMedico";
+        return "Medico/cadastroMedico";
     }
 }

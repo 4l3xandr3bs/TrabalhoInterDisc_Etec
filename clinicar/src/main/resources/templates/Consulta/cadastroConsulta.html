@@ -44,25 +44,31 @@
         text-align: center;
         font-size: larger;
       }
+      form{
+
+      }
       </style> 
 </head>
 <body>
+  <header id="banner">
+    <h2>Crie uma Consulta</h2>
+  </header>
     <div class="col-6 m4 ">
-        <h2>Crie uma Consulta</h2>
-        
-        <form th:action="@{/medicos/salvar}" method="POST" th:object="${medico}">
-          <label for="nomeAluno">Nome:</label>
-          <input type="text" name="nomeAluno" th:field="*{nomeAluno}" />
+      
+        <form th:action="@{/consultas/salvar}" method="POST" th:object="${consulta}" id="form">
+          <label for="nomeCliente">Seu Nome:</label>
+          <input type="text" name="nomeCliente" th:field="*{nomeCliente}" />
           <br />
           <input type="datetime-local">
         </div>
           <br />
       
-          <label for="especialMedico">Especialidade:</label>
-          <input type="text" name="especialMedico" th:field="*{especialMedico}" />
-          <br />
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <select th:field="*{medico}">
+            <option value="" disabled selected>Selecione um médico</option>
+            <option th:each="medico:${medicos}" th:text:="${medico.nomeMedico}" th:value="${medico.idMedico}"></option>
+          </select>
         </form>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     
     <footer id="rodape">

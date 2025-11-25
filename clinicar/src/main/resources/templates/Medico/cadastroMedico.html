@@ -52,8 +52,8 @@
       <h2>Cadastro como médico</h2>
       
       <form th:action="@{/medicos/salvar}" method="POST" th:object="${medico}">
-        <label for="nomeAluno">Nome:</label>
-        <input type="text" name="nomeAluno" th:field="*{nomeAluno}" />
+        <label for="nomeMedico">Nome:</label>
+        <input type="text" name="nomeMedico" th:field="*{nomeMedico}" />
         <br />
         <label for="crmMedico">CRM:</label>
         <input type="text" name="crmMedico" th:field="*{crmMedico}" />

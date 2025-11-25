@@ -12,8 +12,8 @@ public class ClienteService {
     @Autowired 
     private ClienteRepository clienteRepository;
     //método para salvar um aluno
-    public Cliente save(Cliente medico ){
-        return clienteRepository.save(medico);
+    public Cliente save(Cliente cliente ){
+        return clienteRepository.save(cliente);
   
     }
     //método para listar todos os alunos

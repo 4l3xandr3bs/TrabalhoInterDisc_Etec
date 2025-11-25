@@ -47,7 +47,9 @@
       </style> 
 </head>
 <body>
+  <header id="banner">
       <h1 align="center">lista de Clientes</h1>
+      </header
     <body align="center"><a href="/clientes/criar">Cadastrar</a></body>
     <table align="center" border="1">
           <thead class="thead-dark"><tr>
@@ -62,7 +64,7 @@
       <th colspan="2">Ações</th>
 </tr>
 </thead>
-<tr th:each="aluno : ${clientes}">
+<tr th:each="cliente : ${clientes}">
     <td th:text="${cliente.idCliente}">*</td>
     <td th:text="${cliente.nomeCliente}">*</td>
     <td th:text="${cliente.telefoneCliente}">*</td>
