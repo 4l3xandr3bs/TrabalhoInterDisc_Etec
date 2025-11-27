@@ -1,5 +1,7 @@
 package br.com.clininin.clinicar.Entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,10 +24,9 @@ public class Consulta {
    @GeneratedValue(strategy = GenerationType.AUTO)
      
    private Integer idConsulta;
-   @Column(nullable = false, length = 40)
-   private String datahoraConsulta;
-    @Column(nullable = false, length = 11)
-   private String obsConsulta;
+   private LocalDateTime datahoraConsulta;
+   @Column(nullable = false, length = 900)
+   private String tipoConsulta;
 
    @ManyToOne
 @JoinColumn(name = "idMedico-fk")

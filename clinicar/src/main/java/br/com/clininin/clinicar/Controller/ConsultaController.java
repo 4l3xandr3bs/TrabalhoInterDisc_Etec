@@ -1,4 +1,6 @@
 package br.com.clininin.clinicar.Controller;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +30,12 @@ public class ConsultaController {
         model.addAttribute("clientes", clienteService.findAll());
         return "Consulta/cadastroConsulta";
     }
+@GetMapping("/listar")
+    public String listar(Model model) {
+        List<Consulta> consulta = consultaService.findAll();
+        model.addAttribute("consulta", consulta);
+        return "Consulta/listaConsulta";
+    }
 
     @GetMapping("/editar/{idConsulta}")
     public String editarForm(@PathVariable("idConsulta") Integer idConsulta, Model model) {
@@ -42,4 +50,5 @@ public class ConsultaController {
       consultaService.save(consulta);
    return "redirect:/consultas/listar";
     }
+    
 }

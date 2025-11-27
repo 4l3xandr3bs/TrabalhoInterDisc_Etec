@@ -44,9 +44,7 @@
         text-align: center;
         font-size: larger;
       }
-      form{
-
-      }
+  
       </style> 
 </head>
 <body>
@@ -59,8 +57,8 @@
         <label for="datahoraConsulta">Data e Hora:</label>
         <input type="datetime-local" th:field="*{datahoraConsulta}" />
         <br />
-        <label for="obsConsulta">Observação:</label>
-        <input type="text" th:field="*{obsConsulta}" />
+        <label for="tipoConsulta">tipo Consulta:</label>
+        <input type="text" th:field="*{tipoConsulta}" />
         <br />
         <label for="cliente">Cliente:</label>
         <select th:field="*{cliente}">
