@@ -14,6 +14,7 @@ import br.com.clininin.clinicar.Entity.Consulta;
 import br.com.clininin.clinicar.Service.ClienteService;
 import br.com.clininin.clinicar.Service.ConsultaService;
 import br.com.clininin.clinicar.Service.MedicoService;
+import br.com.clininin.clinicar.dto.ConsultaDisp;
 @Controller
 @RequestMapping("/consultas")
 public class ConsultaController {
@@ -25,7 +26,7 @@ public class ConsultaController {
     public MedicoService medicoService;
     @GetMapping("/criar")
     public String criarForm(Model model) {
-        model.addAttribute("consulta", new Consulta());
+        model.addAttribute("consulta", new ConsultaDisp(null, null));
         model.addAttribute("medicos", medicoService.findAll());
         model.addAttribute("clientes", clienteService.findAll());
         return "Consulta/cadastroConsulta";
