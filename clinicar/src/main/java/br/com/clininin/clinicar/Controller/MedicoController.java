@@ -39,13 +39,13 @@ public class MedicoController {
     }
 
     @GetMapping("/excluir/{idMedico}")
-    public String excluir(@PathVariable Integer idMedico) {
+    public String excluir(@PathVariable("idMedico") Integer idMedico) {
         medicoService.deleteById(idMedico);
         return "redirect:/medicos/listar";
     }
     
     @GetMapping("/editar/{idMedico}")
-    public String editarForm(@PathVariable Integer idMedico, Model model) {
+    public String editarForm(@PathVariable("idMedico") Integer idMedico, Model model) {
         Medico medico = medicoService.findById(idMedico);
         model.addAttribute("medico", medico);
         return "Medico/cadastroMedico";

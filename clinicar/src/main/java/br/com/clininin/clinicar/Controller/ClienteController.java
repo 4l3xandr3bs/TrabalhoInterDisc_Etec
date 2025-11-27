@@ -42,13 +42,13 @@ public class ClienteController {
     }
 
     @GetMapping("/excluir/{idCliente}")
-    public String excluir(@PathVariable Integer idCliente) {
+    public String excluir(@PathVariable("idCliente") Integer idCliente) {
         clienteService.deleteById(idCliente);
         return "redirect:/clientes/listar";
     }
 
     @GetMapping("/editar/{idCliente}")
-    public String editarForm(@PathVariable Integer idCliente, Model model) {
+    public String editarForm(@PathVariable("idCliente") Integer idCliente, Model model) {
         Cliente cliente = clienteService.findById(idCliente);
         model.addAttribute("cliente", cliente);
         return "Cliente/cadastroCliente";
