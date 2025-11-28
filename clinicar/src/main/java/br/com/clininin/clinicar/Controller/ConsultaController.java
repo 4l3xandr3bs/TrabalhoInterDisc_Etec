@@ -33,9 +33,8 @@ public class ConsultaController {
     }
 @GetMapping("/listar")
     public String listar(Model model) {
-        List<Consulta> consulta = consultaService.findAll();
-        model.addAttribute("consulta", consulta);
-        return "Consulta/listaConsulta";
+        model.addAttribute("consultas", consultaService.findAll());
+    return "Consulta/listaConsulta";
     }
 
     @GetMapping("/editar/{idConsulta}")

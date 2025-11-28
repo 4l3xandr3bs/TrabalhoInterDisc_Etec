@@ -15,4 +15,11 @@ public class ConsultaDisp {
     public LocalDateTime  getDatahoraConsulta() {
         return datahoraConsulta;
     }
+    public Integer getMedicoId() {
+        return null;
+    }
+    public Integer getClienteId() {
+        return null;
+    }
+
 }

@@ -26,5 +26,8 @@ public class Cliente {
     private String enderecoCliente;
     @Column(nullable = false, length = 40)
     private String telefoneCliente;
+    private Integer idadeCliente;
+    @Column(nullable = false, length  = 9)
+    private Integer cpfCliente;
 }
 
