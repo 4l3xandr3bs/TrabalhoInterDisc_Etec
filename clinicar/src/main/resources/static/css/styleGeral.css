@@ -1,38 +1,93 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color:
-        #f8f8f8;
-}
-
-/* Banner */
-#banner {
-    
+    background-color: #f8f8f8;
+  }
+ 
+  #banner {
     width: 100%;
-    height: 80px; /* Defina a altura do cabeçalho */
+    height: 80px;
     color: rgb(36, 35, 35);
     background-color: #3997A1;
+    /* Cor da clínica */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5em;
-}
+  }
+ 
+  /* Estilo do formulário (cartão) */
+  .form-card {
+    background-color: #ffffff;
+    /* Fundo branco para o formulário */
+    padding: 30px;
+    border-radius: 8px;
+    /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    margin-bottom: 20px;
+  }
+ 
+  /* Estilo para o botão primário, combinando com a cor do banner */
+  .btn-primary {
+    background-color: #3997A1;
+    border-color: #3997A1;
+    transition: background-color 0.3s ease;
+  }
+ 
+  .btn-primary:hover {
+    background-color: #2a7a85;
+    /* Um tom ligeiramente mais escuro ao passar o mouse */
+    border-color: #2a7a85;
+  }
+ 
+  /* Estilo para a imagem: renomeei de .img para .img-cadastro (ou use um nome de sua escolha) */
+  .img-cadastro {
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
 
-img{
-    position: fixed;
-    height: 90%;
-}
-
-
-/* Rodapé */
-#rodape {
+  .img-inicio{
+    height: 100%;
+    width: 130%;
+   
+    object-fit: cover;
+  }
+ 
+  /* Rodapé */
+  #rodape {
     position: fixed;
     bottom: 0;
     left: 0;
     height: 40px;
     width: 100%;
-    color:#3997A1;
-    background-color:    rgb(36, 35, 35);
+    color: #3997A1;
+    background-color: rgb(36, 35, 35);
     text-align: center;
     font-size: larger;
+  }
+ 
+  /* Estilo para os links do menu principal (da resposta anterior) */
+  .menu-card {
+      display: block;
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-decoration: none;
+      color: rgb(36, 35, 35);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+ 
+  .menu-card:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+  }
+ 
+.menu-card h3 a {
+    color: rgb(36, 35, 35);
+    text-decoration: none;
 }

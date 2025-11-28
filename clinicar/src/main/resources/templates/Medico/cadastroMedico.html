@@ -1,74 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>  <link rel="stylesheet" href="../static/css/styleGeral.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color:
-          #f8f8f8;
-    }
-    
-    /* Banner */
-    #banner {
-      
-      width: 100%;
-      height: 80px; /* Defina a altura do cabeçalho */
-      color: rgb(36, 35, 35);
-      background-color: #3997A1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5em;
-    }
-    
-    img{
-      position: fixed;
-      height: 90%;
-    }
-    
-    
-    /* Rodapé */
-    #rodape {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      height: 40px;
-      width: 100%;
-      color:#3997A1;
-      background-color:    rgb(36, 35, 35);
-      text-align: center;
-      font-size: larger;
-    }
-    </style> 
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/css/styleGeral.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
 <body>
-   
-    <main>
-     <div class="col-6 m4 ">
-      <h2>Cadastro como médico</h2>
-      
-      <form th:action="@{/medicos/salvar}" method="POST" th:object="${medico}">
-        <label for="nomeMedico">Nome:</label>
-        <input type="text" name="nomeMedico" th:field="*{nomeMedico}" />
-        <br />
-        <label for="crmMedico">CRM:</label>
-        <input type="text" name="crmMedico" th:field="*{crmMedico}" />
-        <br />
-    
-        <label for="especialMedico">Especialidade:</label>
-        <input type="text" name="especialMedico" th:field="*{especialMedico}" />
-        <br />
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-      </form>
+  <header id="banner">
+    <h1>Sistema da Clinica </h1>
+  </header>
+  <main class="container mt-4">
+
+    <div class="row ">
+
+      <div class="col-md-6 form-card ">
+        <h2>Cadastro como médico</h2>
+
+        <form th:action="@{/medicos/salvar}" method="POST" th:object="${medico}">
+         
+          <div class="mb-3">
+            <label for="nomeMedico" class="form-label">Nome:</label>
+            <input type="text" name="nomeMedico" th:field="*{nomeMedico}" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="crmMedico" class="form-label">CRM:</label>
+            <input type="text" name="crmMedico" th:field="*{crmMedico}" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="especialMedico" class="form-label">Especialidade:</label>
+            <input type="text" name="especialMedico" th:field="*{especialMedico}" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+
+      <!-- Coluna da Imagem -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <!-- Classes Bootstrap para imagem responsiva -->
+        <img th:src="@{/img/cadstroMedico.jpg}" alt="Descrição da imagem"  class="img-fluid img-cadastro">
+      </div>
+
     </div>
-</main>
-<footer id="rodape">
-  <p> &copy2025 Clinica medica, todos os direitos reservados</p>
-</footer>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </main>
+
+  <footer id="rodape">
+    <p> &copy2025 Clinica medica, todos os direitos reservados</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
