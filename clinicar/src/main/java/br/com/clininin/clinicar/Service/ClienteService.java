@@ -11,12 +11,13 @@ import br.com.clininin.clinicar.Repository.ClienteRepository;
 public class ClienteService {
     @Autowired 
     private ClienteRepository clienteRepository;
-    //método para salvar um aluno
+
+    
     public Cliente save(Cliente cliente ){
         return clienteRepository.save(cliente);
   
     }
-    //método para listar todos os alunos
+
     public List<Cliente> findAll(){
       return clienteRepository.findAll();
     }

@@ -1,41 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="@{/css/styleGeral.css}">
-    
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/css/styleGeral.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
 <body>
   <header id="banner">
     <h1>Sistema da Clinica </h1>
-</header>
-     <div class="col-6 m4">
-      <h2>Formulario com bootstrap</h2>
-      <form th:action="@{/clientes/salvar}" method="POST" th:object="${cliente}">
-        <label for="nomeCliente">Nome:</label>
-        <input type="text" name="nomeCliente" th:field="*{nomeCliente}" />
-        <br />
-        <label for="idadeCliente">Idade:</label>
-        <input type="text" name="idadeCliente" th:field="*{idadeCliente}" />
-        <br />
-        <label for="cpfCliente">CPF:</label>
-        <input type="text" name="cpfCliente" th:field="*{cpfCliente}" />
-        <br />
-        <label for="enderecoCliente">endereço:</label>
-        <input type="text" name="enderecoCliente" th:field="*{enderecoCliente}" />
-        <br />
-    
-        <label for="telefoneCliente">telefone:</label>
-        <input type="text" name="telefoneCliente" th:field="*{telefoneCliente}" />
-        <br />
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-      </form>
+  </header>
+  <main class="container mt-4">
+
+    <div class="row ">
+
+      <div class="col-md-6 form-card ">
+        <h2>Cadastro de Pacientes</h2>
+
+        <form th:action="@{/clientes/salvar}" method="POST" th:object="${cliente}">
+
+          <div class="mb-3">
+            <label for="nomeCliente">Nome:</label>
+            <input type="text" name="nomeCliente" th:field="*{nomeCliente}" />
+          </div>
+
+          <div class="mb-3">
+            <label for="enderecoCliente">endereço:</label>
+            <input type="text" name="enderecoCliente" th:field="*{enderecoCliente}" />
+          </div>
+
+          <div class="mb-3">
+            <label for="telefoneCliente">telefone:</label>
+            <input type="text" name="telefoneCliente" th:field="*{telefoneCliente}" />
+          </div>
+
+          <!--idadeCliente e cpfCliente -->
+          <div class="mb-3">
+            <label for="idadeCliente">Idade:</label>
+            <input type="text" name="idadeCliente" th:field="*{idadeCliente}" />
+          </div>
+          <div class="mb-3">
+            <label for="cpfCliente">CPF:</label>
+            <input type="text" name="cpfCliente" th:field="*{cpfCliente}" />
+          </div>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <a th:href="@{/}" class="btn btn-secondary">
+            Voltar ao Menu Principal
+          </a>
+        </form>
+      </div>
+
+      <!-- Coluna da Imagem -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <!-- Classes Bootstrap para imagem responsiva -->
+        <img th:src="@{/img/cadstroMedico.jpg}" alt="Descrição da imagem" class="img-fluid img-cadastro">
+      </div>
+
+
     </div>
-    <footer id="rodape">
-      <p> &copy2025 Clinica medica, todos os direitos reservados</p>
-  </footer>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  </main>
+  <footer id="rodape">
+    <p> &copy2025 Clinica medica, todos os direitos reservados</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

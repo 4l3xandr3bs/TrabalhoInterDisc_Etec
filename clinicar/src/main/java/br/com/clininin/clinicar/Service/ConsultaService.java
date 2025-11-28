@@ -20,7 +20,7 @@ public class ConsultaService {
     private final MedicoService medicoService;
     private final ClienteService clienteService;
 
-    // Constructor injection — Spring will provide the dependencies
+   
     public ConsultaService(ConsultaRepository consultaRepository,
                            MedicoService medicoService,
                            ClienteService clienteService) {
@@ -45,10 +45,6 @@ public class ConsultaService {
         return consultaRepository.findById(idConsulta).orElse(null);
     }
 
-    /**
-     * Checks if a medico is available at the requested date/time using a slot duration.
-     * Returns true if available.
-     */
     public boolean isMedicoAvailable(Integer medicoId, LocalDateTime requestedDateTime, Duration slotDuration) {
         if (medicoId == null || requestedDateTime == null || slotDuration == null) {
             return false;
@@ -57,19 +53,16 @@ public class ConsultaService {
         LocalDateTime start = requestedDateTime;
         LocalDateTime end = requestedDateTime.plus(slotDuration);
 
-        // Uses repository method findByMedico_IdMedicoAndDatahoraConsultaBetween if present
-        // If your repository method has a different name, update accordingly.
+
         List<Consulta> overlapping = consultaRepository.findByMedico_IdMedicoAndDatahoraConsultaBetween(medicoId, start, end.minusNanos(1));
         return overlapping == null || overlapping.isEmpty();
     }
 
-    /**
-     * Map DTO-like ConsultaDisp to entity and save. This method resolves medico/client entities.
-     */
+  
     public Consulta saveFromDisp(ConsultaDisp disp) {
         if (disp == null) throw new IllegalArgumentException("ConsultaDisp is null");
 
-        // Resolve medico and cliente using their services (they return null if not found)
+    
         Medico medico = medicoService.findById(disp.getMedicoId());
         Cliente cliente = clienteService.findById(disp.getClienteId());
 
@@ -85,4 +78,5 @@ public class ConsultaService {
 
         return consultaRepository.save(consulta);
     }
+
 }
