@@ -1,73 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="htt://www.thymeleaf.org">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Medicos</title>
-    <link rel="stylesheet" th:href="@{/css/styleGeral.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/css/styleGeral.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <header id="banner">
-        <h1>Sistema da Clinica </h1>
-    </header>
-    <main class="mt-5">
-        <div class="container">
-            <div class="row grid text-center">
-                <div class=" col-12 link">
+  <header id="banner">
+    <h1>Sistema da Clinica </h1>
+  </header>
+  <main class="container mt-4">
 
-                    <h2 class="mb-4">Gerenciamento de Médicos</h2>
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <a href="/medicos/criar" class="btn btn-primary">
-                            Cadastrar Novo Médico
-                        </a>
-                        <a th:href="@{/}" class="btn btn-secondary">
-                            Voltar ao Menu Principal
-                        </a>
-                    </div>
+    <div class="row ">
 
-                    <hr />
-                    <h1><label for="Lista medicos"></label></h1>
+      <div class="col-md-6 form-card ">
+        <h2>Cadastro de medicos</h2>
 
+        <form th:action="@{/medicos/salvar}" method="POST" th:object="${medico}">
 
-                </div>
-                <div class="col">
+          <div class="mb-3">
+            <label for="nomeMedico">Nome:</label>
+            <input type="text" name="nomeMedico" th:field="*{nomeMedico}" />
+          </div>
 
-                    <table class="table table-bordered border-secondary">
-                        <tr>
-                            <td colspan="9" class="table-dark fw-bold h5">Lista de Medicos </td>
-                        </tr>
-                        <tr>
-                            <th class="table-dark">ID</th>
-                            <th class="table-dark">Nome</th>
-                            <th class="table-dark">CRM</th>
-                            <th class="table-dark">Especialidade </th>
-                            <th colspan="2" class="table-dark">Ações</th>
-                        </tr>
-                        <tr th:each="medico : ${medicos}">
-                            <td th:text="${medico.idMedico}" class="table-light">*</td>
-                            <td th:text="${medico.nomeMedico}" class="table-light">*</td>
-                            <td th:text="${medico.crmMedico}" class="table-light">*</td>
-                            <td th:text="${medico.especialMedico}" class="table-light">*</td>
-                            <td class="table-secondary"><a
-                                    th:href="@{/medicos/editar/{id}(id=${medico.idMedico})}">Editar</a></td>
-                            <td class="table-secondary"><a
-                                    th:href="@{/medicos/excluir/{id}(id=${medico.idMedico})}">Excluir</a></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+          <div class="mb-3">
+            <label for="crmMedico">CRM:</label>
+            <input type="text" name="crmMedico" th:field="*{crmMedico}" />
+          </div>
+
+          <div class="mb-3">
+            <label for="especialMedico">Especialidade:</label>
+            <input type="text" name="especialMedico" th:field="*{especialMedico}" />
+
+          </div> <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <a class="btn btn-secondary ms-2" th:href="@{/medicos/listar}">Voltar Listagem</a>
+          <a th:href="@{/}" class="btn btn-secondary">
+            Voltar ao Menu Principal
+          </a>
         </div>
-    </main>
-    <footer id="rodape">
-        <p> &copy2025 Clinica medica, todos os direitos reservados</p>
-    </footer>
 
+
+      <!-- Coluna da Imagem -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <!-- Classes Bootstrap para imagem responsiva -->
+        <img th:src="@{/img/medico.jpg}" alt="Descrição da imagem" class="img-fluid img-cadastro">
+      </div>
+
+    </div>
+
+  </main>
+  <footer id="rodape">
+    <p> &copy2025 Clinica medica, todos os direitos reservados</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
