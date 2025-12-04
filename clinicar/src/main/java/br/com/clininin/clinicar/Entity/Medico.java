@@ -23,6 +23,6 @@ public class Medico {
     private String nomeMedico;
      @Column(nullable = false, length = 40)
     private String especialMedico;
-   
+    @Column(nullable = false, length = 6)
     private Integer crmMedico;
 }
