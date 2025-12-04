@@ -10,54 +10,76 @@
 </head>
 <body>
   <header id="banner">
-    <h2>Crie uma Consulta</h2>
+    <h1>Sistema da Clinica </h1>
   </header>
-    <div class="col-6 m4 ">
-      
-      <form th:action="@{/consultas/salvar}" method="post" th:object="${consulta}">
-        <div class="mb-3">
-          <label for="datahoraConsulta" class="form-label">Data e Hora</label>
-          <!-- LocalDateTime field in ConsultaDisp -->
-          <input id="datahoraConsulta" type="datetime-local" th:field="*{datahoraConsulta}" class="form-control" />
-        </div>
-  
-        <div class="mb-3">
-          <label for="tipoConsulta" class="form-label">Tipo de Consulta</label>
-          <input id="tipoConsulta" type="text" th:field="*{tipoConsulta}" class="form-control" />
-        </div>
-  
-        <div class="mb-3">
-          <label for="clienteSelect" class="form-label">Cliente</label>
-          <select id="clienteSelect" th:field="*{clienteId}" class="form-select">
-            <option value="" disabled selected>Selecione um cliente</option>
-            <option th:each="cliente : ${clientes}"
-                    th:value="${cliente.idCliente}"
-                    th:text="${cliente.nomeCliente}">
-            </option>
-          </select>
-        </div>
-  
-        <div class="mb-3">
-          <label for="medicoSelect" class="form-label">Médico</label>
-          <select id="medicoSelect" th:field="*{medicoId}" class="form-select">
-            <option value="" disabled selected>Selecione um médico</option>
-            <option th:each="medico : ${medicos}"
-                    th:value="${medico.idMedico}"
-                    th:text="${medico.nomeMedico}">
-            </option>
-          </select>
-        </div>
-  
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-        <a class="btn btn-secondary ms-2" th:href="@{/consultas/listar}">Voltar</a>
-      </form>
+  <main class="container mt-4">
+
+    <div class="row ">
+
+      <div class="col-md-6 form-card ">
+        <h2>Cadastro de Consultas</h2>
+
+        <form th:action="@{/consultas/salvar}" method="post" th:object="${consulta}">
+
+          <div class="mb-3">
+            <label for="datahoraConsulta" class="form-label">Data e Hora</label>
+            <!-- LocalDateTime field in ConsultaDisp -->
+            <input id="datahoraConsulta" type="datetime-local" th:field="*{datahoraConsulta}" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="tipoConsulta" class="form-label">Tipo de Consulta</label>
+        <input id="tipoConsulta" type="text" th:field="*{tipoConsulta}" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="clienteSelect" class="form-label">Cliente</label>
+            <select id="clienteSelect" th:field="*{clienteId}" class="form-select">
+              <option value="" disabled selected>Selecione um cliente</option>
+              <option th:each="cliente : ${clientes}"
+                      th:value="${cliente.idCliente}"
+                      th:text="${cliente.nomeCliente}">
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="medicoSelect" class="form-label">Médico</label>
+            <select id="medicoSelect" th:field="*{medicoId}" class="form-select">
+              <option value="" disabled selected>Selecione um médico</option>
+              <option th:each="medico : ${medicos}"
+                      th:value="${medico.idMedico}"
+                      th:text="${medico.nomeMedico}">
+              </option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+          <a class="btn btn-secondary ms-2" th:href="@{/consultas/listar}">Voltar Listagem</a>
+          <a th:href="@{/}" class="btn btn-secondary">
+            Voltar ao Menu Principal
+          </a>
+        </form>
+      </div>
+
+      <!-- Coluna da Imagem -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <!-- Classes Bootstrap para imagem responsiva -->
+        <img th:src="@{/img/consulta.jpg}" alt="Descrição da imagem" class="img-fluid img-cadastro">
+      </div>
+
+
     </div>
-  
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });
-     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  </main>
+  <footer id="rodape">
+    <p> &copy2025 Clinica medica, todos os direitos reservados</p>
+  </footer>
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+ </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
