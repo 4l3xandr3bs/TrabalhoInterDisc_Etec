@@ -45,8 +45,8 @@ public class ConsultaService {
         return consultaRepository.findById(idConsulta).orElse(null);
     }
 
-    public boolean isMedicoAvailable(Integer medicoId, LocalDateTime requestedDateTime, Duration slotDuration) {
-        if (medicoId == null || requestedDateTime == null || slotDuration == null) {
+    public boolean isMedicoAvailable(Integer idMedico, LocalDateTime requestedDateTime, Duration slotDuration) {
+        if (idMedico == null || requestedDateTime == null || slotDuration == null) {
             return false;
         }
 
@@ -54,7 +54,7 @@ public class ConsultaService {
         LocalDateTime end = requestedDateTime.plus(slotDuration);
 
 
-        List<Consulta> overlapping = consultaRepository.findByMedico_IdMedicoAndDatahoraConsultaBetween(medicoId, start, end.minusNanos(1));
+        List<Consulta> overlapping = consultaRepository.findByMedico_IdMedicoAndDatahoraConsultaBetween(idMedico, start, end.minusNanos(1));
         return overlapping == null || overlapping.isEmpty();
     }
 

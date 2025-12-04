@@ -18,12 +18,13 @@
     <div class="col-2"></div>
    
 </header>
+   
     <main class="mt-5">
       <div class="container">
         <div class="row grid text-center">
             <div class=" col-12 link">
 
-                <h2 class="mb-4">Gerenciamento de Consultas</h2>
+                <h2 class="mb-4">Gerenciamento de Pacientes</h2>
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <a class="btn btn-primary" th:href="@{/consultas/criar}">Cadastrar nova consulta</a>
                   <a th:href="@{/}" class="btn btn-secondary">Voltar ao Menu Principal</a>
@@ -42,7 +43,7 @@
                     </tr>
                     <tr>
                         <th class="table-dark">ID</th>
-                        <th class="table-dark">Nome</th>
+                       
                         <th class="table-dark">Dia e Horário da Consulta</th>
                         <th class="table-dark">Tipo de Consulta</th>
                         <th class="table-dark">Nome do Cliente</th>
@@ -50,16 +51,16 @@
                         <th colspan="2" class="table-dark">Ações</th>
                     </tr>
                     <tr th:each="consulta : ${consultas}">
-                        <td th:text="${consulta.idCliente}" class="table-light">*</td>
-                        <td th:text="${consulta.nomeCliente}" class="table-light">*</td>
+                        <td th:text="${consulta.idConsulta}" class="table-light">*</td>
+                     
                         <td class="table-light"> <span th:text="${#temporals.format(consulta.datahoraConsulta, 'dd/MM/yyyy HH:mm')}"></span> </td>
                         <td> <span th:text="${consulta.tipoConsulta}"></span> </td>
-                        <td th:text="${consulta.cliente}" class="table-light">*</td>
-                        <td th:text="${consulta.medico}" class="table-light">*</td>
+                        <td th:text="${consulta.cliente.idCliente}" class="table-light">*</td>
+                        <td th:text="${consulta.medico.idMedico}" class="table-light">*</td>
                         <td class="table-secondary"><a
-                                th:href="@{/clientes/editar/{id}(id=${cliente.idCliente})}">Editar</a></td>
+                                th:href="@{/consultas/editar/{id}(id=${consulta.idConsulta})}">Editar</a></td>
                         <td class="table-secondary"><a
-                                th:href="@{/clientes/excluir/{id}(id=${cliente.idCliente})}">Excluir</a></td>
+                                th:href="@{/consultas/excluir/{id}(id=${consulta.idConsulta})}">Excluir</a></td>
                     </tr>
                 </table>
             </div>
@@ -71,3 +72,17 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+{% comment %} <tr th:each="consulta : ${consultas}">
+  <td th:text="${consulta.idConsulta}" class="table-light">*</td>
+
+  <td class="table-light"> <span th:text="${#temporals.format(consulta.datahoraConsulta, 'dd/MM/yyyy HH:mm')}"></span> </td>
+  <td> <span th:text="${consulta.tipoConsulta}"></span> </td>
+  <td th:text="${consulta.cliente != null ? consulta.cliente.idCliente : 'sem nome'}" class="table-light"></td>
+  <td th:text="${consulta.medico != null ? consulta.medico.idMedico : 'sem nome'}" class="table-light"></td>
+  <td class="table-secondary"><a
+          th:href="@{/consultas/editar/{id}(id=${consulta.idConsulta})}">Editar</a></td>
+  <td class="table-secondary"><a
+          th:href="@{/consultas/excluir/{id}(id=${consulta.idConsulta})}">Excluir</a></td>
+</tr>  {% endcomment %}

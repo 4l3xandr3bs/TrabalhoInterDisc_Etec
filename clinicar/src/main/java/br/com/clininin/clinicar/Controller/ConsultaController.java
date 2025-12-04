@@ -51,4 +51,9 @@ public class ConsultaController {
    return "redirect:/consultas/listar";
     }
     
+    @GetMapping("/excluir/{idConsulta}")
+    public String excluir(@PathVariable("idConsulta") Integer idConsulta) {
+        consultaService.deleteById(idConsulta);
+        return "redirect:/consultas/listar";
+    }
 }

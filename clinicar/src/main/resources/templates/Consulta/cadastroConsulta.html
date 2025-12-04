@@ -42,7 +42,7 @@
 
           <div class="mb-3">
             <label for="clienteSelect" class="form-label">Cliente</label>
-            <select id="clienteSelect" th:field="*{clienteId}" class="form-select">
+            <select id="clienteSelect" th:field="*{idCliente}" class="form-select">
               <option value="" disabled selected>Selecione um cliente</option>
               <option th:each="cliente : ${clientes}"
                       th:value="${cliente.idCliente}"
@@ -53,7 +53,7 @@
 
           <div class="mb-3">
             <label for="medicoSelect" class="form-label">Médico</label>
-            <select id="medicoSelect" th:field="*{medicoId}" class="form-select">
+            <select id="medicoSelect" th:field="*{idMedico}" class="form-select">
               <option value="" disabled selected>Selecione um médico</option>
               <option th:each="medico : ${medicos}"
                       th:value="${medico.idMedico}"
