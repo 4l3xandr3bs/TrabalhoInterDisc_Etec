@@ -26,7 +26,7 @@ public class ConsultaController {
     public MedicoService medicoService;
     @GetMapping("/criar")
     public String criarForm(Model model) {
-        model.addAttribute("consulta", new ConsultaDisp(null, null));
+        model.addAttribute("consulta", new ConsultaDisp(null, null, null, null));
         model.addAttribute("medicos", medicoService.findAll());
         model.addAttribute("clientes", clienteService.findAll());
         return "Consulta/cadastroConsulta";

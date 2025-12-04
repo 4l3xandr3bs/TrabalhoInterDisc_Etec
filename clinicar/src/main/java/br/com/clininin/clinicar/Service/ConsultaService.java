@@ -63,8 +63,8 @@ public class ConsultaService {
         if (disp == null) throw new IllegalArgumentException("ConsultaDisp is null");
 
     
-        Medico medico = medicoService.findById(disp.getMedicoId());
-        Cliente cliente = clienteService.findById(disp.getClienteId());
+        Medico medico = medicoService.findById(disp.getIdMedico());
+        Cliente cliente = clienteService.findById(disp.getIdCliente());
 
         if (medico == null || cliente == null) {
             throw new IllegalArgumentException("Médico ou Cliente não encontrado");
