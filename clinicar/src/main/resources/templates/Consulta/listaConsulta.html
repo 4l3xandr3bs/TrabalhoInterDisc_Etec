@@ -55,8 +55,8 @@
                      
                         <td class="table-light"> <span th:text="${#temporals.format(consulta.datahoraConsulta, 'dd/MM/yyyy HH:mm')}"></span> </td>
                         <td> <span th:text="${consulta.tipoConsulta}"></span> </td>
-                        <td th:text="${consulta.cliente.idCliente}" class="table-light">*</td>
-                        <td th:text="${consulta.medico.idMedico}" class="table-light">*</td>
+                        <td th:text="${consulta.cliente != null ? consulta.cliente.nomeCliente : 'Sem nome'}" class="table-light"></td>
+                        <td th:text="${consulta.medico != null ? consulta.medico.nomeMedico : 'Sem nome'}" class="table-light"></td>
                         <td class="table-secondary"><a
                                 th:href="@{/consultas/editar/{id}(id=${consulta.idConsulta})}">Editar</a></td>
                         <td class="table-secondary"><a

@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import br.com.clininin.clinicar.Entity.Cliente;
 import br.com.clininin.clinicar.Entity.Consulta;
+import br.com.clininin.clinicar.Entity.Medico;
 import br.com.clininin.clinicar.Service.ClienteService;
 import br.com.clininin.clinicar.Service.ConsultaService;
 import br.com.clininin.clinicar.Service.MedicoService;
@@ -45,11 +47,18 @@ public class ConsultaController {
         model.addAttribute("clientes", clienteService.findAll());
         return "Consulta/cadastroConsulta";
     }
-    @PostMapping("/salvar")
-    public String salvar(@ModelAttribute Consulta consulta) {
-      consultaService.save(consulta);
-   return "redirect:/consultas/listar";
-    }
+ @PostMapping("/salvar")
+public String salvar(@ModelAttribute Consulta consulta) {
+    // Fetch the real Cliente and Medico entities from Service by ID
+    Cliente cliente = clienteService.findById(consulta.getCliente().getIdCliente());
+    Medico medico = medicoService.findById(consulta.getMedico().getIdMedico());
+
+    consulta.setCliente(cliente);
+    consulta.setMedico(medico);
+
+    consultaService.save(consulta);
+    return "redirect:/consultas/listar";
+}
     
     @GetMapping("/excluir/{idConsulta}")
     public String excluir(@PathVariable("idConsulta") Integer idConsulta) {
