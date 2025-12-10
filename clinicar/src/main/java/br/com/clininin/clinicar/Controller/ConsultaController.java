@@ -42,23 +42,18 @@ public class ConsultaController {
     @GetMapping("/editar/{idConsulta}")
     public String editarForm(@PathVariable("idConsulta") Integer idConsulta, Model model) {
         Consulta consulta = consultaService.findById(idConsulta);
-        model.addAttribute("consulta", consulta);
-        model.addAttribute("medicos", medicoService.findAll());
-        model.addAttribute("clientes", clienteService.findAll());
+        model.addAttribute("consulta", consultaService.findAll());
+
         return "Consulta/cadastroConsulta";
     }
- @PostMapping("/salvar")
-public String salvar(@ModelAttribute Consulta consulta) {
-    // Fetch the real Cliente and Medico entities from Service by ID
-    Cliente cliente = clienteService.findById(consulta.getCliente().getIdCliente());
-    Medico medico = medicoService.findById(consulta.getMedico().getIdMedico());
 
-    consulta.setCliente(cliente);
-    consulta.setMedico(medico);
+    @PostMapping("/salvar")
+    public String salvar(@ModelAttribute Consulta Consulta) {
+        // salva aluno
+        consultaService.save(Consulta);
 
-    consultaService.save(consulta);
-    return "redirect:/consultas/listar";
-}
+        return "redirect:/consultas/listar";
+    }
     
     @GetMapping("/excluir/{idConsulta}")
     public String excluir(@PathVariable("idConsulta") Integer idConsulta) {
