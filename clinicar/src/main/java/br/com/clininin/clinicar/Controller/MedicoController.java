@@ -19,7 +19,7 @@ public class MedicoController {
 
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Medico medico) {
-        // salva aluno
+     
         medicoService.save(medico);
 
         return "redirect:/medicos/listar";

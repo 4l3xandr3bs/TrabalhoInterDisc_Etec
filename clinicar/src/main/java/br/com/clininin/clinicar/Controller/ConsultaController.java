@@ -29,8 +29,11 @@ public class ConsultaController {
     @GetMapping("/criar")
     public String criarForm(Model model) {
         model.addAttribute("consulta", new ConsultaDisp(null, null, null, null));
+        List<Consulta> consultas = consultaService.findAll();
         model.addAttribute("medicos", medicoService.findAll());
+        List<Medico> medicos = medicoService.findAll();
         model.addAttribute("clientes", clienteService.findAll());
+        List<Cliente> clientes = clienteService.findAll();
         return "Consulta/cadastroConsulta";
     }
 @GetMapping("/listar")
@@ -43,13 +46,16 @@ public class ConsultaController {
     public String editarForm(@PathVariable("idConsulta") Integer idConsulta, Model model) {
         Consulta consulta = consultaService.findById(idConsulta);
         model.addAttribute("consulta", consultaService.findAll());
-
+        Medico medico = medicoService.findById(idConsulta);
+        model.addAttribute("medico", medicoService.findAll());
+        Cliente cliente = clienteService.findById(idConsulta);
+        model.addAttribute("cliente", clienteService.findAll());
         return "Consulta/cadastroConsulta";
     }
 
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Consulta Consulta) {
-        // salva aluno
+       
         consultaService.save(Consulta);
 
         return "redirect:/consultas/listar";
@@ -58,6 +64,8 @@ public class ConsultaController {
     @GetMapping("/excluir/{idConsulta}")
     public String excluir(@PathVariable("idConsulta") Integer idConsulta) {
         consultaService.deleteById(idConsulta);
+        medicoService.deleteById(idConsulta);
+        clienteService.deleteById(idConsulta);
         return "redirect:/consultas/listar";
     }
 }
